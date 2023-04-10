@@ -46,16 +46,39 @@ public class HamletParser {
         while(matcher.find()){
             matcher.appendReplacement(sb, replacementText);
         }
-        matcher.appendTail(sb);
+        hamletData = matcher.appendTail(sb).toString();
 
-        pattern = Pattern.compile("Hamlet");
+        pattern = Pattern.compile("HAMLET");
         matcher = pattern.matcher(hamletData);
         sb = new StringBuffer();
-        replacementText = "Leon";
+        replacementText = "LEON";
         while(matcher.find()){
             matcher.appendReplacement(sb, replacementText);
         }
-        matcher.appendTail(sb);
+        hamletData = matcher.appendTail(sb).toString();
+    }
+    public void changeHoratioToTariq() {
+        Pattern pattern = Pattern.compile("Horatio");
+        Matcher matcher = pattern.matcher(hamletData);
+        StringBuffer sb = new StringBuffer();
+        String replacementText = "Tariq";
+        while(matcher.find()){
+            matcher.appendReplacement(sb, replacementText);
+        }
+        hamletData = matcher.appendTail(sb).toString();
+
+        pattern = Pattern.compile("HORATIO");
+        matcher = pattern.matcher(hamletData);
+        sb = new StringBuffer();
+        replacementText = "TARIQ";
+        while(matcher.find()){
+            matcher.appendReplacement(sb, replacementText);
+        }
+        hamletData = matcher.appendTail(sb).toString();
+    }
+    public void change(){
+        changeHamletToLeon();
+        changeHoratioToTariq();
     }
 
     public int findHoratio() {

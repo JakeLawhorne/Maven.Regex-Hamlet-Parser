@@ -20,11 +20,9 @@ public class HamletParserTest {
     @Test
     public void testChangeHamletToLeon() {
         //Given
-        Pattern pattern = Pattern.compile("Hamlet", Pattern.CASE_INSENSITIVE);
-        Matcher matcher = pattern.matcher(hamletText);
-
-        //When
         hamletParser.changeHamletToLeon();
+        Pattern pattern = Pattern.compile("Hamlet", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(hamletParser.getHamletData());
 
         //Then
         Assert.assertFalse(matcher.find());
@@ -33,11 +31,10 @@ public class HamletParserTest {
     @Test
     public void testChangeHoratioToTariq() {
         //Given
+        hamletParser.changeHoratioToTariq();
         Pattern pattern = Pattern.compile("Horatio", Pattern.CASE_INSENSITIVE);
-        Matcher matcher = pattern.matcher(hamletText);
+        Matcher matcher = pattern.matcher(hamletParser.getHamletData());
 
-        //When
-//        hamletParser.changeHoratioToTariq();
 
         //Then
         Assert.assertFalse(matcher.find());
